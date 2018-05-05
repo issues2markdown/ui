@@ -1,0 +1,32 @@
+{
+  "name": "ui",
+  "version": "0.0.1",
+  "description": "issues2markdown ui ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issues2markdown/ui.git"
+  },
+  "keywords": [
+    "github",
+    "issues",
+    "markdown",
+    "tasklist",
+    "ui",
+    "html",
+    "microservice",
+    "docker"
+  ],
+  "author": "Raül Pérez <repejota@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/issues2markdown/ui/issues"
+  },
+  "homepage": "https://github.com/issues2markdown/ui#readme",
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
+}
