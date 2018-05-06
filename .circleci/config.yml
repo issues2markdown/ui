@@ -19,7 +19,7 @@ jobs:
     ####   /go/src/bitbucket.org/circleci/go-tool
     working_directory: /go/src/github.com/issues2markdown/ui
     steps:
-      - checkout
+      # - checkout
 
       # specify any bash command here prefixed with `run: `
       - run: make deps
