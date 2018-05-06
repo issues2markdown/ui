@@ -5,6 +5,7 @@ VERSION=`cat VERSION`
 serve:	## Start the microservice
 	npm run dev
 
+.PHONY: build
 build: 	## Build production microservice
 	npm run build
 
