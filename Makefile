@@ -3,7 +3,7 @@ VERSION=`cat VERSION`
 # Run
 
 serve:	## Start the microservice
-	npm run serve
+	npm run dev
 
 build: 	## Build production microservice
 	npm run build
@@ -15,7 +15,8 @@ version:	## Show version information
 # Testing
 
 .PHONY: test
-test:	## Execute package tests 
+test:	## Execute package tests
+	npm run test
 
 # Lint
 
