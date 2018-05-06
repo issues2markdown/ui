@@ -3,8 +3,10 @@ VERSION=`cat VERSION`
 # Run
 
 serve:	## Start the microservice
-	python3 -m http.server
+	npm run serve
 
+build: 	## Build production microservice
+	npm run build
 
 .PHONY: version
 version:	## Show version information
@@ -18,6 +20,7 @@ test:	## Execute package tests
 # Lint
 
 lint:	## Lint source code
+	npm run lint
 
 # Dependencies
 
