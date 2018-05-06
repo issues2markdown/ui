@@ -1,8 +1,9 @@
 VERSION=`cat VERSION`
 
-# Build & Install
+# Run
 
-install:	## Build and install package on your system
+serve:	## Start the microservice
+	python3 -m http.server
 
 
 .PHONY: version
@@ -13,13 +14,6 @@ version:	## Show version information
 
 .PHONY: test
 test:	## Execute package tests 
-
-.PHONY: cover
-cover: 	## Generate test coverage data
-
-.PHONY: coveralls
-coveralls:
-	goveralls -service circle-ci -repotoken <repo>
 
 # Lint
 
