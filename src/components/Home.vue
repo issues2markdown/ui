@@ -4,7 +4,7 @@
       <div class="col">
         <h1>Welcome to issues2markdown</h1>
 
-        <section class="query">
+        <section class="query-form text-left mb-4">
           <div class="row">
             <div class="col">
               <h4>Query Issues:</h4>
@@ -22,11 +22,11 @@
           </div>
         </section>
 
-        <section class="results">
+        <section class="query-results text-left mb-4">
           <div class="row">
             <div class="col">
               <h4>Markdown Result:</h4>
-              <pre><code class="markdown">{{ markdown }}</code></pre>
+              <pre v-highlightjs="markdown" class="form-control border-secondary"><code class="markdown"></code></pre>
             </div>
           </div>
         </section>
@@ -51,7 +51,7 @@ export default {
   data () {
     return {
       query: 'type:issue org:repejota state:open state:closed',
-      markdown: '',
+      markdown: ' ',
       errors: []
     }
   },
@@ -74,5 +74,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  pre {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre\9;
+    word-break: keep-all;
+  }
+  code {
+    background: transparent;
+  }
 </style>
