@@ -4,18 +4,20 @@
       <div class="col">
         <h1>Welcome to issues2markdown</h1>
 
-        <section class="search">
+        <section class="query">
           <div class="row">
             <div class="col">
               <h4>Query Issues:</h4>
-              <div class="input-group">
-                <input class="form-control border-secondary" type="search" placeholder="Query issues...">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
+              <form id="queryForm" v-on:submit.prevent="queryForm()" action="https://localhost:8081/" method="GET">
+                <div class="input-group">
+                  <input name="q" id="q" type="search" v-model="query" class="form-control border-secondary" placeholder="Query issues...">
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </section>
@@ -35,19 +37,36 @@
 </template>
 
 <script>
-const markdownResult = `- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)
-- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)
-- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)
-- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)
-- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)
-- [ ] org/repo : [Issue Title](https://github.com/org/repo/issues/1)`
+import axios from 'axios'
+
+export const HTTP = axios.create({
+  baseURL: `http://localhost:8081/`,
+  headers: {
+    Authorization: 'Bearer 7d60ff74c2693a6d01028f7b060d7601bb87dc88'
+  }
+})
 
 export default {
   name: 'Home',
   data () {
     return {
-      markdown: markdownResult,
-      query: ''
+      query: 'type:issue org:repejota state:open state:closed',
+      markdown: '',
+      errors: []
+    }
+  },
+  methods: {
+    queryForm (submitEvent) {
+      HTTP.get(`/`, {
+        params: {
+          q: this.query
+        }
+      }).then(response => {
+        this.markdown = response.data
+      }).catch(e => {
+        this.errors = e
+        console.log(this.errors)
+      })
     }
   }
 }
