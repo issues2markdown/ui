@@ -9,7 +9,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/"><i class="fas fa-home"></i> Home</a>
-              <a class="dropdown-item" href="/about"><i class="fas fa-info-circle"></i> About</a>
+              <a class="dropdown-item" href="/about/"><i class="fas fa-info-circle"></i> About</a>
             </div>
           </div>
         </div>
